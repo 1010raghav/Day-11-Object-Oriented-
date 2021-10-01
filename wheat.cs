@@ -12,3 +12,4 @@ namespace InventoryDataManagement
         public int Price;
     }
 }
+
