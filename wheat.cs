@@ -4,7 +4,7 @@ using System.Text;
 
 namespace InventoryDataManagement
 {
-    class wheat
+    class Wheat
     {
 
         public string name;
