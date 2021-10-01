@@ -28,7 +28,9 @@ namespace InventoryDataManagement
 
             }
         }
-
+    }     
+    class FetchJsonForWheat   
+    {
         public Wheat Read(string Path)
         {
 
@@ -48,7 +50,9 @@ namespace InventoryDataManagement
 
             }
         }
-
+    }
+    class FetchJsonForPulses
+    {
         public Pulses Read(string Path)
         {
 
