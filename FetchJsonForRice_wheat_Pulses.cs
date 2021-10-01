@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,87 +9,64 @@ namespace InventoryDataManagement
 {
     class FetchJsonForRice
     {
-        private object searializerSettings;
-
         public Rice Read(string Path)
         {
+
             using (StreamReader file = new StreamReader(Path))
             {
                 try
                 {
                     string json = file.ReadToEnd();
+                    return JsonConvert.DeserializeObject<Rice>(json);
 
-                    var searialSettings = new JsonSearializerSettings
-                    {
-                        ContractResolver = new CamelCasePropertyNameContractResolver()
-
-                    };
-                    Console.WriteLine(json);
-                    return JsonConvert.DeserializeObject<Rice>(json, searializerSettings);
-                }catch(Exception e)
-                {
-                    Console.WriteLine("Problem Reading File");
-                    return null;
-                }
-            }
-        }
-    }
-    class FetchJsonForWheat
-    {
-        private object searializerSettings;
-
-        public Rice Read(string Path)
-        {
-            using (StreamReader file = new StreamReader(Path))
-            {
-                try
-                {
-                    string json = file.ReadToEnd();
-
-                    var searialSettings = new JsonSearializerSettings
-                    {
-                        ContractResolver = new CamelCasePropertyNameContractResolver()
-
-                    };
-                    Console.WriteLine(json);
-                    return JsonConvert.DeserializeObject<wheat>(json, searializerSettings);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Problem Reading File");
+                    Console.WriteLine("Problem Reading file");
                     return null;
                 }
+
             }
         }
-    }
 
-    class FetchJsonForPulses
-    {
-        private object searializerSettings;
-
-        public Rice Read(string Path)
+        public Wheat Read(string Path)
         {
+
             using (StreamReader file = new StreamReader(Path))
             {
                 try
                 {
                     string json = file.ReadToEnd();
+                    return JsonConvert.DeserializeObject<Wheat>(json);
 
-                    var searialSettings = new JsonSearializerSettings
-                    {
-                        ContractResolver = new CamelCasePropertyNameContractResolver()
-
-                    };
-                    Console.WriteLine(json);
-                    return JsonConvert.DeserializeObject<Pulses>(json, searializerSettings);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Problem Reading File");
+                    Console.WriteLine("Problem Reading file");
                     return null;
                 }
+
+            }
+        }
+
+        public Pulses Read(string Path)
+        {
+
+            using (StreamReader file = new StreamReader(Path))
+            {
+                try
+                {
+                    string json = file.ReadToEnd();
+                    return JsonConvert.DeserializeObject<Pulses>(json);
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Problem Reading file");
+                    return null;
+                }
+
             }
         }
     }
 }
-
